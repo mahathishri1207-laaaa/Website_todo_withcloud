@@ -201,3 +201,180 @@ td {
     margin-left: 15px;
     font-size: 0.9rem;
 }
+.btn-logout:hover {
+    text-decoration: underline;
+}
+.table-container {
+    overflow-x: auto;
+}
+.table-container table {
+    width: 100%;
+    min-width: 600px;
+}
+.table-container th, .table-container td {
+    padding: 12px 15px;
+    text-align: left;
+}
+.table-container th {
+    background-color: #f4f4f4;
+}
+.table-container tr:nth-child(even) {
+    background-color: #fafafa;
+}
+.table-container tr:hover {
+    background-color: #f1f1f1;
+}
+/* Login Page Specific Styles */
+.login-container {
+    max-width: 400px;
+    width: 100%;
+}
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+.divider span {
+    background: #fff;
+    padding: 0 10px;
+    color: #888;
+    font-size: 0.9rem;
+}
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #ddd;
+    z-index: -1;
+}
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #333;
+}
+.social-btn:hover {
+    background: #f9f9f9;
+}
+.social-btn img {
+    height: 20px;
+    margin-right: 10px;
+}
+/* Responsive Design for Dashboard and Login */
+@media (max-width: 600px) {
+    .nav-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .task-form .form-row {
+        flex-direction: column;
+    }
+}
+/* Responsive Design for Dashboard and Login */
+/* Auth Container Layout */
+.auth-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Divider Styling */
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 25px 0;
+}
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #eee;
+}
+.divider span {
+    background: #fff;
+    padding: 0 15px;
+    color: #999;
+    font-size: 0.8rem;
+    position: relative;
+}
+
+/* Google Button Styling (Official Brand Look) */
+.google-btn {
+    width: 100%;
+    height: 42px;
+    background-color: #dc9ca5;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color .2s ease;
+}
+
+.google-btn:hover {
+    background-color: #6eb3d9;
+    box-shadow: 0 0 6px rgba(128, 142, 166, 0.3);
+}
+
+.google-icon-wrapper {
+    position: absolute;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.google-icon {
+    width: 18px;
+}
+
+.btn-text {
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    text-align: center;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
