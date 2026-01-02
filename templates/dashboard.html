@@ -2,47 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard - {{ username }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Todo App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='static.css') }}">
 </head>
 <body>
-    <div class="container" style="max-width: 900px;">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2>My Tasks</h2>
-            <a href="/logout" style="color: #666; text-decoration: none;">Logout</a>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>Todo Cloud</h1>
+            <div class="user-info">
+                <span>Welcome, <strong>{{ username }}</strong></span>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
         </div>
+    </nav>
 
-        <form action="/add" method="POST" style="display: flex; gap: 10px; margin-top: 20px;">
-            <input type="text" name="description" placeholder="What needs to be done?" required style="flex: 2;">
-            <input type="date" name="deadline" required style="flex: 1;">
-            <select name="priority" style="flex: 1;">
-                <option value="Low">Low</option>
-                <option value="Medium" selected>Medium</option>
-                <option value="High">High</option>
-            </select>
-            <button type="submit" class="btn btn-primary" style="width: auto; padding: 0 20px;">Add</button>
-        </form>
+    <div class="container dashboard-container">
+        <section class="add-task">
+            <h3>Add New Task</h3>
+            <form action="/add" method="POST" class="task-form">
+                <input type="text" name="description" placeholder="What needs to be done?" required>
+                <div class="form-row">
+                    <input type="date" name="deadline" required>
+                    <select name="priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </div>
+            </form>
+        </section>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Task Description</th>
-                    <th>Deadline</th>
-                    <th>Priority</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for task in tasks %}
-                <tr>
-                    <td>{{ task.description }}</td>
-                    <td>{{ task.deadline }}</td>
-                    <td class="priority-{{ task.priority }}">{{ task.priority }}</td>
-                    <td><a href="/delete/{{ task._id }}" class="btn-drop">Drop</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <section class="task-list">
+            <h3>Your Tasks</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Deadline</th>
+                        <th>Priority</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.description }}</td>
+                        <td>{{ task.deadline }}</td>
+                        <td><span class="priority-{{ task.priority }}">{{ task.priority }}</span></td>
+                        <td>
+                            <a href="/delete/{{ task._id }}" class="btn-drop" onclick="return confirm('Delete this task?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
     </div>
 </body>
 </html>

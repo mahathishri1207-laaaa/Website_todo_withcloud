@@ -164,3 +164,40 @@ td {
         padding: 10px;
     }
 }
+/* Dashboard Specific Styles */
+.navbar {
+    background: #1a1a1a;
+    color: white;
+    padding: 1rem 2rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.dashboard-container {
+    margin-top: 80px;
+    max-width: 900px;
+}
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+.btn-logout {
+    color: #ff4d4d;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 0.9rem;
+}
