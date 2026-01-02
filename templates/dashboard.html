@@ -3,62 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Todo App</title>
+    <title>Dashboard | Todo Cloud</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='static.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <h1>Todo</h1>
-            <div class="user-info">
-                <span>Welcome, <strong>{{ username }}</strong></span>
-                <a href="/logout" class="btn-logout">Logout</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container dashboard-container">
-        <section class="add-task">
-            <h3>Add New Task</h3>
-            <form action="/add" method="POST" class="task-form">
-                <input type="text" name="description" placeholder="What needs to be done?" required>
-                <div class="form-row">
-                    <input type="date" name="deadline" required>
-                    <select name="priority">
-                        <option value="Low">Low</option>
-                        <option value="Medium">Medium</option>
-                        <option value="High">High</option>
-                    </select>
-                    <button type="submit" class="btn btn-primary">Add Task</button>
+<body class="dark-vault dashboard-body">
+    <div class="dashboard-wrapper">
+        <nav class="side-nav">
+            <div class="nav-header">
+                <div class="icon-circle-small">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                 </div>
-            </form>
-        </section>
+                <span>EliteTasks</span>
+            </div>
+            <div class="user-profile">
+                <div class="avatar">{{ username[0] | upper }}</div>
+                <div class="user-info">
+                    <p class="welcome">Welcome,</p>
+                    <p class="username">{{ username }}</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Dashboard</a>
+                <a href="/logout" class="logout-link">Logout</a>
+            </div>
+        </nav>
 
-        <section class="task-list">
-            <h3>Your Tasks</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Deadline</th>
-                        <th>Priority</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for task in tasks %}
-                    <tr>
-                        <td>{{ task.description }}</td>
-                        <td>{{ task.deadline }}</td>
-                        <td><span class="priority-{{ task.priority }}">{{ task.priority }}</span></td>
-                        <td>
-                            <a href="/delete/{{ task._id }}" class="btn-drop" onclick="return confirm('Delete this task?')">Delete</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </section>
+        <main class="main-content">
+            <header class="content-header">
+                <h1>My Workspace</h1>
+                <p>You have {{ tasks|length }} tasks pending.</p>
+            </header>
+
+            <section class="task-input-card">
+                <form action="/add" method="POST" class="task-form">
+                    <input type="text" name="description" placeholder="What needs to be done?" required>
+                    <div class="task-meta">
+                        <input type="date" name="deadline" required>
+                        <select name="priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                        <button type="submit" class="add-btn">+</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="task-grid">
+                {% for task in tasks %}
+                <div class="task-card priority-{{ task.priority | lower }}">
+                    <div class="task-content">
+                        <span class="badge">{{ task.priority }}</span>
+                        <h3>{{ task.description }}</h3>
+                        <p class="due-date">Due: {{ task.deadline }}</p>
+                    </div>
+                    <a href="/delete/{{ task._id }}" class="delete-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </a>
+                </div>
+                {% endfor %}
+            </section>
+        </main>
     </div>
 </body>
 </html>

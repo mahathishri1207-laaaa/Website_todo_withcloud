@@ -3,45 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Todo Cloud</title>
+    <title>Todo Cloud | Elite</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='static.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container auth-container">
-        <div class="auth-header">
-            <h2>Welcome Back</h2>
-            <p class="subtitle">Log in to manage your tasks</p>
-        </div>
-
-        <form action="/login" method="POST" class="login-form">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" placeholder="Enter your username" required>
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" placeholder="Enter your password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign In</button>
-        </form>
-
-        <div class="divider">
-            <span>Other ways to sign in </span>
-        </div>
-
-        <div class="social-login">
-            <a href="{{ url_for('google_login') }}" class="google-btn">
-                <div class="google-icon-wrapper">
-                    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google logo"/>
+<body class="dark-vault">
+    <div class="glow-container">
+        <div class="login-box">
+            <header>
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
                 </div>
-                <p class="btn-text"><b>Sign in with Google</b></p>
-            </a>
-        </div>
+                <h1>Welcome Back</h1>
+                <p>Access your digital workspace.</p>
+            </header>
 
-        <p class="footer-text">
-            Don't have an account? <a href="/register">Register here</a>
-        </p>
+            <form action="/login" method="POST">
+                <div class="input-wrapper">
+                    <input type="text" name="username" required placeholder=" ">
+                    <label>Username</label>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" name="password" required placeholder=" ">
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="shine-btn">Sign In</button>
+            </form>
+
+            <div class="or-separator">
+                <span>Direct Access</span>
+            </div>
+
+            <a href="{{ url_for('google_login') }}" class="google-lite">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G">
+                Continue with Google
+            </a>
+
+            <footer>
+                New user? <a href="/register">Create Account</a>
+            </footer>
+        </div>
     </div>
 </body>
 </html>
