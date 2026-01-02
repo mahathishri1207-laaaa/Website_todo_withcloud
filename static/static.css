@@ -1,0 +1,166 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Card Container */
+.container {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #357abd;
+}
+
+/* Tables in Dashboard */
+table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #666;
+}
+
+td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Priority Badges */
+.priority-High { color: #d9534f; font-weight: bold; }
+.priority-Medium { color: #f0ad4e; font-weight: bold; }
+.priority-Low { color: #5cb85c; font-weight: bold; }
+
+.btn-drop {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: 500;
+}
+.btn-drop:hover {
+    text-decoration: underline;
+}
+.priority-Critical { color: #a94442; font-weight: bold; }
+.priority-Normal { color: #5bc0de; font-weight: bold; }
+.priority-Minor { color: #5cb85c; font-weight: bold; }
+.priority-Major { color: #f0ad4e; font-weight: bold; }
+.priority-Trivial { color: #777; font-weight: bold; }
+.status-Open { color: #d9534f; font-weight: bold; }
+.status-InProgress { color: #f0ad4e; font-weight: bold; }
+.status-Resolved { color: #5cb85c; font-weight: bold; } 
+.status-Closed { color: #777; font-weight: bold; }
+.status-Reopened { color: #5bc0de; font-weight: bold; }
+.status-Verified { color: #337ab7; font-weight: bold; }
+.status-Pending { color: #f0ad4e; font-weight: bold; }
+.status-Duplicate { color: #777; font-weight: bold; }
+.status-WontFix { color: #777; font-weight: bold; }
+.status-NotAProblem { color: #777; font-weight: bold; }
+.status-Fixed { color: #5cb85c; font-weight: bold; }
+.status-ClosedAsIncomplete { color: #777; font-weight: bold; }
+.status-ClosedAsOutOfScope { color: #777; font-weight: bold; }
+.status-ClosedAsByDesign { color: #777; font-weight: bold; }
+.status-ClosedAsObsolete { color: #777; font-weight: bold; }
+.status-ClosedAsWon'tFix { color: #777; font-weight: bold; }
+.status-ClosedAsNotReproducible { color: #777; font-weight: bold; }
+.status-ClosedAsNotABug { color: #777; font-weight: bold; }
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    input, select, .btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
