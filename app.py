@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+google_id = os.getenv("GOOGLE_CLIENT_ID")
+google_secret = os.getenv("GOOGLE_CLIENT_SECRET")
 
 app = Flask(__name__)
 
@@ -62,8 +68,9 @@ def dashboard():
     if 'user_id' not in session:
         return redirect(url_for('index'))
     
+    # We fetch tasks and pass the username to the header
     user_tasks = list(tasks_col.find({"user_id": session['user_id']}))
-    return render_template('dashboard.html', tasks=user_tasks, username=session['username'])
+    return render_template('dashboard.html', tasks=user_tasks, username=session.get('username', 'User'))
 
 @app.route('/add', methods=['POST'])
 def add_task():
